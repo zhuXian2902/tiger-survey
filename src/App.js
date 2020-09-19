@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
+/** @format */
+
+import React, { useState } from 'react';
 import './App.css';
+import Landing from './components/Landing';
+import CreateServey from './components/CreateSurvey';
+import TakeServey from './components/TakeSurvey';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [value, setValue] = useState(0);
+	return (
+		<div className="App">
+			{value === 0 && <Landing setValue={setValue} />}
+			{value === 1 && <CreateServey />}
+			{value === 2 && <TakeServey />}
+		</div>
+	);
 }
 
 export default App;
